@@ -11,6 +11,7 @@ on:
 
 env:
   FRONTEND_WEBAPP_DEV: karimg-fe-dev
+  WHICHENVIRONMENT : ${{github.ref == 'ref/head/main' && 'uat' || 'dev'}}
 
 jobs:
   build:
@@ -27,9 +28,14 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          if [[ $WHICHENVIRONMENT == "uat" ]]; then
           npm install
-          npm run build -- --mode development --dest dist-dev ## this command will build the vue.js app using .env.development variables into the dest-div/ folder
-
+          npm run build -- --mode production --dest dist-dev
+          else
+            npm install
+            npm run build -- --mode development --dest dist-dev
+          fi
+          
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:

@@ -64,5 +64,5 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.FRONTEND_WEBAPP_DEV }}-{{env.WHICHENVIRONMENT}}
+          app-name: ${{ env.FRONTEND_WEBAPP_DEV }}-${{env.WHICHENVIRONMENT}}
           package: .

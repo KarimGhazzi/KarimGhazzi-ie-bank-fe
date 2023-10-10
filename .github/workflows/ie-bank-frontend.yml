@@ -7,10 +7,11 @@ on:
   push:
     branches:
       - main
+      - '*'
   workflow_dispatch:
 
 env:
-  FRONTEND_WEBAPP_DEV: karimg-fe-dev
+  FRONTEND_WEBAPP_DEV: karimg-fe
   WHICHENVIRONMENT : ${{github.ref == 'ref/head/main' && 'uat' || 'dev'}}
 
 jobs:
@@ -63,5 +64,5 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.FRONTEND_WEBAPP_DEV }}
+          app-name: ${{ env.FRONTEND_WEBAPP_DEV }}-{{env.WHICHENVIRONMENT}}
           package: .

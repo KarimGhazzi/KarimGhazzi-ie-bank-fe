@@ -30,8 +30,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           if [[ $WHICHENVIRONMENT == "uat" ]]; then
-          npm install
-          npm run build -- --mode production --dest dist-dev
+            npm install
+            npm run build -- --mode production --dest dist-dev
           else
             npm install
             npm run build -- --mode development --dest dist-dev

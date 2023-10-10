@@ -12,7 +12,7 @@ on:
 
 env:
   FRONTEND_WEBAPP_DEV: karimg-fe
-  WHICHENVIRONMENT : ${{github.ref == 'ref/head/main' && 'uat' || 'dev'}}
+  WHICHENVIRONMENT : ${{github.ref == 'ref/head/main' && 'uat' || 'dev2'}}
 
 jobs:
   build:

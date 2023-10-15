@@ -32,6 +32,8 @@
                 <th scope="col">Actions</th>
               </tr>
             </thead>
+            <li><router-link to="/">Return to homepage</router-link></li>
+           <li><router-link to="/skull">Go to Skull</router-link></li>
             <tbody>
               <tr v-for="account in accounts" :key="account.id">
                 <td>{{ account.name }}</td>
